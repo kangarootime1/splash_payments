@@ -203,7 +203,7 @@ module SplashPayments
       def validate_response
         if @response.has_errors?
           if SplashPayments.configuration.exception_enabled
-            raise SplashPayments::Exceptions::ApiError.new('There are errors in the response')
+            raise SplashPayments::Exceptions::ApiError.new("There are errors in the response - #{@response.errors}")
           end
 
           false
